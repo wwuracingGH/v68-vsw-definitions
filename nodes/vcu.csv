@@ -1,0 +1,31 @@
+ID,Channel,Type,Multiplier,Minimum,Maximum,Unit,Hint
+0x00,APPS1_L,uint16_t,1,0,4096,,The lower bound of the apps 1 channel
+0x01,APPS1_H,uint16_t,1,0,4096,,The upper bound of the apps 1 channel
+0x02,APPS2_L,uint16_t,1,0,4096,,The lower bound of the apps 2 channel
+0x03,APPS2_H,uint16_t,1,0,4096,,The upper bound of the apps 2 channel
+0x04,APPS3_L,uint16_t,1,0,4096,,The lower bound of the apps 3 channel
+0x05,APPS3_H,uint16_t,1,0,4096,,The upper bound of the apps 3 channel
+0x06,APPS4_L,uint16_t,1,0,4096,,The lower bound of the apps 4 channel
+0x07,APPS4_H,uint16_t,1,0,4096,,The upper bound of the apps 4 channel
+0x08,BPS_S_MIN,uint16_t,1,0,4096,,The lower bound of the brake pressure sensors
+0x09,BPS_S_MAX,uint16_t,1,0,4096,,The upper bound of the brake pressure sensors
+0x0A,BPS_F_BIAS,uint16_t,20/13107,0,65535,%,The brake bias
+0x0C,MAX_TORQUE ,uint16_t,0.1,0,2200,Nm,The absolute maximum torque the CM200 will be sent by the VCU
+0x0D,HARD_BRAKING,uint16_t,0.1,0,5000,Bar,At what pressure will APPS/BSE Plausability trip
+0x0E,MAX_BRAKE_P,uint16_t,0.1,0,5000,Bar,What is the maximum shared pressure of the brake system (keep at 300 bar)
+0x10,TorqueCurve_0,int16_t,0.01,-10000,10000,%,Percentage of Max Torque at 0% pedal travel
+0x11,TorqueCurve_1,int16_t,0.01,-10000,10000,%,Percentage of Max Torque at 6.25% pedal travel
+0x12,TorqueCurve_2,int16_t,0.01,-10000,10000,%,Percentage of Max Torque at 12.5% pedal travel
+0x13,TorqueCurve_3,int16_t,0.01,-10000,10000,%,Percentage of Max Torque at 18.75% pedal travel
+0x14,TorqueCurve_4,int16_t,0.01,-10000,10000,%,Percentage of Max Torque at 25% pedal travel
+0x15,TorqueCurve_5,int16_t,0.01,-10000,10000,%,Percentage of Max Torque at 31.25% pedal travel
+0x16,TorqueCurve_6,int16_t,0.01,-10000,10000,%,Percentage of Max Torque at 37.5% pedal travel
+0x17,TorqueCurve_7,int16_t,0.01,-10000,10000,%,Percentage of Max Torque at 43.75% pedal travel
+0x18,TorqueCurve_8,int16_t,0.01,-10000,10000,%,Percentage of Max Torque at 50% pedal travel
+0x19,TorqueCurve_9,int16_t,0.01,-10000,10000,%,Percentage of Max Torque at 56.25% pedal travel
+0x1A,TorqueCurve_10,int16_t,0.01,-10000,10000,%,Percentage of Max Torque at 62.5% pedal travel
+0x1B,TorqueCurve_11,int16_t,0.01,-10000,10000,%,Percentage of Max Torque at 68.75% pedal travel
+0x1C,TorqueCurve_12,int16_t,0.01,-10000,10000,%,Percentage of Max Torque at 75% pedal travel
+0x1D,TorqueCurve_13,int16_t,0.01,-10000,10000,%,Percentage of Max Torque at 81.25% pedal travel
+0x1E,TorqueCurve_14,int16_t,0.01,-10000,10000,%,Percentage of Max Torque at 87.5% pedal travel
+0x1F,TorqueCurve_15,int16_t,0.01,-10000,10000,%,Percentage of Max Torque at 93.75% pedal travel

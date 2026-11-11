@@ -1,0 +1,17 @@
+ID,Channel,Type,Multiplier,Min,Max,Unit,Hint
+0x00,MAX_CURRENT_CH1,uint16_t,0.01,0,3000,A,The maximum current of channel 1
+0x01,MAX_CURRENT_CH2,uint16_t,0.01,0,3000,A,The maximum current of channel 2
+0x02,MAX_CURRENT_CH3,uint16_t,0.01,0,3000,A,The maximum current of channel 3
+0x03,MAX_CURRENT_CH4,uint16_t,0.01,0,3000,A,The maximum current of channel 4
+0x04,MAX_CURRENT_CH5,uint16_t,0.01,0,3000,A,The maximum current of channel 5
+0x05,MAX_CURRENT_CH6,uint16_t,0.01,0,3000,A,The maximum current of channel 6
+0x06,DUTY_CYCLE_CH7,uint16_t,20/13107,0,65536,%,The maximum current of channel 7
+0x07,DUTY_CYCLE_CH8,uint16_t,20/13107,0,65536,%,The maximum current of channel 8
+0x08,TIME_DELAY_MS_CH1,int16_t,1,-1,32767,Milliseconds,"The time delay, in milliseconds, between the pdb booting and channel 1 turning on"
+0x09,TIME_DELAY_MS_CH2,int16_t,1,-1,32767,Milliseconds,"The time delay, in milliseconds, between the pdb booting and channel 2 turning on"
+0x10,TIME_DELAY_MS_CH3,int16_t,1,-1,32767,Milliseconds,"The time delay, in milliseconds, between the pdb booting and channel 3 turning on"
+0x11,TIME_DELAY_MS_CH4,int16_t,1,-1,32767,Milliseconds,"The time delay, in milliseconds, between the pdb booting and channel 4 turning on"
+0x12,TIME_DELAY_MS_CH5,int16_t,1,-1,32767,Milliseconds,"The time delay, in milliseconds, between the pdb booting and channel 5 turning on"
+0x13,TIME_DELAY_MS_CH6,int16_t,1,-1,32767,Milliseconds,"The time delay, in milliseconds, between the pdb booting and channel 6 turning on"
+0x14,TIME_DELAY_MS_CH7,int16_t,1,-1,32767,Milliseconds,"The time delay, in milliseconds, between the pdb booting and channel 7 turning on"
+0x15,TIME_DELAY_MS_CH8,int16_t,1,-1,32767,Milliseconds,"The time delay, in milliseconds, between the pdb booting and channel 8 turning on"

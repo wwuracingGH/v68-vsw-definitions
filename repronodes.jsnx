@@ -1,0 +1,26 @@
+{
+    "vcu" : {
+        "displayname" : "Vehicle Control Unit",
+        "parameter_reveal_id" : 0x110, /* technically not permitted in json but neither are comments */
+        "parameter_change_id" : 0x111,
+        "parameter_request_id" : 0x112,
+        "can_bootloading_request_id" : 0x120,
+        "valuespath" : "nodes/vcu.csv"
+    },
+    "pdb" : {
+        "displayname" : "Power Distribution Board",
+        "parameter_reveal_id" : 0x310,
+        "parameter_change_id" : 0x311,
+        "parameter_request_id" : 0x312,
+        "can_bootloading_request_id" : 0x320,
+        "valuespath" : "nodes/pdb.csv"
+    },
+    "halow" : {
+        "displayname" : "Telemetry Board",
+        "parameter_reveal_id" : 0x410,
+        "parameter_change_id" : 0x411,
+        "parameter_request_id" : 0x412,
+        "can_bootloading_request_id" : 0x420,
+        "valuespath" : "nodes/halow.csv"
+    }
+}
