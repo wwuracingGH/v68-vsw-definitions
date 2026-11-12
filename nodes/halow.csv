@@ -1,0 +1,2 @@
+ID,Channel,Type,Multiplier,Minimum,Maximum,Unit,Hint
+0,Test,uint8_t,0,0,0,,Not real

@@ -1,4 +1,4 @@
-ID,Channel,Type,Multiplier,Min,Max,Unit,Hint
+ID,Channel,Type,Multiplier,Minimum,Maximum,Unit,Hint
 0x00,MAX_CURRENT_CH1,uint16_t,0.01,0,3000,A,The maximum current of channel 1
 0x01,MAX_CURRENT_CH2,uint16_t,0.01,0,3000,A,The maximum current of channel 2
 0x02,MAX_CURRENT_CH3,uint16_t,0.01,0,3000,A,The maximum current of channel 3
