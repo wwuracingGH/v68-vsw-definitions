@@ -16,7 +16,7 @@
         "valuespath" : "nodes/pdb.csv"
     },
     "halow" : {
-        "displayname" : "Telemetry Board",
+        "displayname : "Telemetry Board",
         "parameter_reveal_id" : 0x410,
         "parameter_change_id" : 0x411,
         "parameter_request_id" : 0x412,

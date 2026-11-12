@@ -1,0 +1,6 @@
+<XML>
+    <node parameters="nodes/vcu.csv">
+        <Displayname>Vehicle Control Unit</Displayname>
+        <>
+    </node>
+</XML>
