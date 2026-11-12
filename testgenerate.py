@@ -8,43 +8,45 @@ fileheader = '''/*
 
 #include <stdint.h>
 
+#define VERSION_NUMBER {0}
 '''
 
 topleveldefine = '''
 /* Definitions for {1} [{0}], {5} */
-#define FLASHPIPE_{1}_ID       {0}
-#define FLASHPIPE_{1}_MINVALUE {3}
-#define FLASHPIPE_{1}_MAXVALUE {4}
-{2}* Flashpipe_{1} = 0;
+#define PARAMPIPE_{1}_ID       {0}
+#define PARAMPIPE_{1}_MINVALUE {3}
+#define PARAMPIPE_{1}_MAXVALUE {4}
+{2}* ParamPipe_{1} = 0;
 
 '''
 
 get_start = '''
 /* returns the parameter cast to an integer */
-int flashpipe_getvalue(int id) {
+int parampipe_getvalue(int id) {
 \tswitch (id) {
 '''
 
-get_content = '''\tcase FLASHPIPE_{1}_ID:
-\t\treturn (int)*Flashpipe_{1};
+get_content = '''\tcase PARAMPIPE_{1}_ID:
+\t\treturn (int)*ParamPipe_{1};
 '''
 
 get_end = '''\tcase 65535:
-\t\treturn {0};
+\t\treturn VERSION_NUMBER;
 \t}}
+\treturn -1;
 }}
 
 '''
 
 set_start = '''
 /* sets the parameter */
-void flashpipe_setvalue(int id, int newval) {
+void parampipe_setvalue(int id, int newval) {
 \tswitch (id) {
 '''
 
-set_content = '''\tcase FLASHPIPE_{1}_ID:
+set_content = '''\tcase PARAMPIPE_{1}_ID:
 \t\tif (({2})newval <= {4} && ({2})newval >= {3})
-\t\t\t*Flashpipe_{1} = ({2})newval; 
+\t\t\t*ParamPipe_{1} = ({2})newval; 
 \tbreak;
 '''
 
@@ -54,7 +56,7 @@ set_end = '''\t}
 '''
 
 infiles = ["nodes/vcu.csv", "nodes/pdb.csv", "nodes/halow.csv"]
-outfiles = ["outputs/vcu_flashpipe.c", "outputs/pdb_flashpipe.c", "outputs/halow_flashpipe.c"]
+outfiles = ["outputs/vcu_parampipe.c", "outputs/pdb_parampipe.c", "outputs/halow_parampipe.c"]
 
 if __name__ == '__main__':
     version = sys.argv[1]
@@ -78,7 +80,7 @@ if __name__ == '__main__':
         idx_hint = next((i for i,c in enumerate(channels) if c == 'Hint'), -1)
 
         with open(outfilepath, "w") as f:
-            f.write(fileheader)
+            f.write(fileheader.format(version))
 
             for l in incsv[1:]:
                 id, name, type, min, max, hint = l[idx_id], l[idx_name], l[idx_type], l[idx_min], l[idx_max], l[idx_hint]
@@ -90,7 +92,7 @@ if __name__ == '__main__':
                 id, name, type, min, max, hint = l[idx_id], l[idx_name], l[idx_type], l[idx_min], l[idx_max], l[idx_hint]
                 f.write(get_content.format(id, name, type, min, max, hint))
 
-            f.write(get_end.format(version))
+            f.write(get_end)
 
             f.write(set_start)
 
