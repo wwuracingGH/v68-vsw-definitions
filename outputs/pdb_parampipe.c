@@ -6,7 +6,7 @@
 
 #include <stdint.h>
 
-#define VERSION_NUMBER 2
+#define VERSION_NUMBER 3
 
 /* Definitions for MAX_CURRENT_CH1 [0x00], The maximum current of channel 1 */
 #define PARAMPIPE_MAX_CURRENT_CH1_ID       0x00
@@ -157,12 +157,14 @@ int parampipe_getvalue(int id) {
 		return (int)*ParamPipe_TIME_DELAY_MS_CH8;
 	case 65535:
 		return VERSION_NUMBER;
-	}}
+	}
 	return -1;
-}}
+}
 
 
 /* sets the parameter */
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wtype-limits"
 void parampipe_setvalue(int id, int newval) {
 	switch (id) {
 	case PARAMPIPE_MAX_CURRENT_CH1_ID:
@@ -231,4 +233,4 @@ void parampipe_setvalue(int id, int newval) {
 	break;
 	}
 }
-
+#pragma GCC diagnostic pop

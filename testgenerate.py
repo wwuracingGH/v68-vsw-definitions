@@ -32,14 +32,16 @@ get_content = '''\tcase PARAMPIPE_{1}_ID:
 
 get_end = '''\tcase 65535:
 \t\treturn VERSION_NUMBER;
-\t}}
+\t}
 \treturn -1;
-}}
+}
 
 '''
 
 set_start = '''
 /* sets the parameter */
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wtype-limits"
 void parampipe_setvalue(int id, int newval) {
 \tswitch (id) {
 '''
@@ -52,7 +54,7 @@ set_content = '''\tcase PARAMPIPE_{1}_ID:
 
 set_end = '''\t}
 }
-
+#pragma GCC diagnostic pop
 '''
 
 infiles = ["nodes/vcu.csv", "nodes/pdb.csv", "nodes/halow.csv"]
@@ -83,13 +85,13 @@ if __name__ == '__main__':
             f.write(fileheader.format(version))
 
             for l in incsv[1:]:
-                id, name, type, min, max, hint = l[idx_id], l[idx_name], l[idx_type], l[idx_min], l[idx_max], l[idx_hint]
+                id, name, type, min, max, hint = l[idx_id], str(l[idx_name]).rstrip(), l[idx_type], l[idx_min], l[idx_max], l[idx_hint]
                 f.write(topleveldefine.format(id, name, type, min, max, hint))
 
             f.write(get_start)
 
             for l in incsv[1:]:
-                id, name, type, min, max, hint = l[idx_id], l[idx_name], l[idx_type], l[idx_min], l[idx_max], l[idx_hint]
+                id, name, type, min, max, hint = l[idx_id], str(l[idx_name]).rstrip(), l[idx_type], l[idx_min], l[idx_max], l[idx_hint]
                 f.write(get_content.format(id, name, type, min, max, hint))
 
             f.write(get_end)
@@ -97,7 +99,7 @@ if __name__ == '__main__':
             f.write(set_start)
 
             for l in incsv[1:]:
-                id, name, type, min, max, hint = l[idx_id], l[idx_name], l[idx_type], l[idx_min], l[idx_max], l[idx_hint]
+                id, name, type, min, max, hint = l[idx_id], str(l[idx_name]).rstrip(), l[idx_type], l[idx_min], l[idx_max], l[idx_hint]
                 f.write(set_content.format(id, name, type, min, max, hint))
 
             f.write(set_end)

@@ -6,7 +6,7 @@
 
 #include <stdint.h>
 
-#define VERSION_NUMBER 2
+#define VERSION_NUMBER 3
 
 /* Definitions for APPS1_L [0x00], The lower bound of the apps 1 channel */
 #define PARAMPIPE_APPS1_L_ID       0x00
@@ -85,11 +85,11 @@ uint16_t* ParamPipe_BPS_S_MAX = 0;
 uint16_t* ParamPipe_BPS_F_BIAS = 0;
 
 
-/* Definitions for MAX_TORQUE  [0x0C], The absolute maximum torque the CM200 will be sent by the VCU */
-#define PARAMPIPE_MAX_TORQUE _ID       0x0C
-#define PARAMPIPE_MAX_TORQUE _MINVALUE 0
-#define PARAMPIPE_MAX_TORQUE _MAXVALUE 2200
-uint16_t* ParamPipe_MAX_TORQUE  = 0;
+/* Definitions for MAX_TORQUE [0x0C], The absolute maximum torque the CM200 will be sent by the VCU */
+#define PARAMPIPE_MAX_TORQUE_ID       0x0C
+#define PARAMPIPE_MAX_TORQUE_MINVALUE 0
+#define PARAMPIPE_MAX_TORQUE_MAXVALUE 2200
+uint16_t* ParamPipe_MAX_TORQUE = 0;
 
 
 /* Definitions for HARD_BRAKING [0x0D], At what pressure will APPS/BSE Plausability trip */
@@ -243,8 +243,8 @@ int parampipe_getvalue(int id) {
 		return (int)*ParamPipe_BPS_S_MAX;
 	case PARAMPIPE_BPS_F_BIAS_ID:
 		return (int)*ParamPipe_BPS_F_BIAS;
-	case PARAMPIPE_MAX_TORQUE _ID:
-		return (int)*ParamPipe_MAX_TORQUE ;
+	case PARAMPIPE_MAX_TORQUE_ID:
+		return (int)*ParamPipe_MAX_TORQUE;
 	case PARAMPIPE_HARD_BRAKING_ID:
 		return (int)*ParamPipe_HARD_BRAKING;
 	case PARAMPIPE_MAX_BRAKE_P_ID:
@@ -283,12 +283,14 @@ int parampipe_getvalue(int id) {
 		return (int)*ParamPipe_TorqueCurve_15;
 	case 65535:
 		return VERSION_NUMBER;
-	}}
+	}
 	return -1;
-}}
+}
 
 
 /* sets the parameter */
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wtype-limits"
 void parampipe_setvalue(int id, int newval) {
 	switch (id) {
 	case PARAMPIPE_APPS1_L_ID:
@@ -335,9 +337,9 @@ void parampipe_setvalue(int id, int newval) {
 		if ((uint16_t)newval <= 65535 && (uint16_t)newval >= 0)
 			*ParamPipe_BPS_F_BIAS = (uint16_t)newval; 
 	break;
-	case PARAMPIPE_MAX_TORQUE _ID:
+	case PARAMPIPE_MAX_TORQUE_ID:
 		if ((uint16_t)newval <= 2200 && (uint16_t)newval >= 0)
-			*ParamPipe_MAX_TORQUE  = (uint16_t)newval; 
+			*ParamPipe_MAX_TORQUE = (uint16_t)newval; 
 	break;
 	case PARAMPIPE_HARD_BRAKING_ID:
 		if ((uint16_t)newval <= 5000 && (uint16_t)newval >= 0)
@@ -413,4 +415,4 @@ void parampipe_setvalue(int id, int newval) {
 	break;
 	}
 }
-
+#pragma GCC diagnostic pop

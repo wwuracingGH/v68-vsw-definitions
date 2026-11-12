@@ -6,7 +6,7 @@
 
 #include <stdint.h>
 
-#define VERSION_NUMBER 2
+#define VERSION_NUMBER 3
 
 /* Definitions for Test [0], Not real */
 #define PARAMPIPE_Test_ID       0
@@ -22,12 +22,14 @@ int parampipe_getvalue(int id) {
 		return (int)*ParamPipe_Test;
 	case 65535:
 		return VERSION_NUMBER;
-	}}
+	}
 	return -1;
-}}
+}
 
 
 /* sets the parameter */
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wtype-limits"
 void parampipe_setvalue(int id, int newval) {
 	switch (id) {
 	case PARAMPIPE_Test_ID:
@@ -36,4 +38,4 @@ void parampipe_setvalue(int id, int newval) {
 	break;
 	}
 }
-
+#pragma GCC diagnostic pop
