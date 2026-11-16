@@ -1,3 +1,6 @@
+#ifndef _VSW_ERRORS_H_
+#define _VSW_ERRORS_H_
+
 /* Motor controller */
 #define MC_PFAULT_POST_DESATURATION_Pos     0x00
 #define MC_PFAULT_POST_OVERCURRENT_Pos      0x01
@@ -243,3 +246,5 @@ const char* VCU_Faults_String[16] = {
 };
 
 const char* VCU_Latch_String = "APPS/BSE Latch enabled";
+
+#endif
