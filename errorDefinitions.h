@@ -243,3 +243,8 @@ const char* VCU_Faults_String[16] = {
 };
 
 const char* VCU_Latch_String = "APPS/BSE Latch enabled";
+
+const char* VCU_OutOfDateErrorString = "VSW Definitions on VCU out of date!";
+const char* PDB_OutOfDateErrorString = "VSW Definitions on PDB out of date!";
+const char* HALOW_OutOfDateErrorString = "VSW Definitions on HALOW out of date!";
+const char* DASH_OutOfDateErrorString = "VSW Definitions on DASH out of date!";
