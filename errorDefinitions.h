@@ -1,6 +1,11 @@
 #ifndef _VSW_ERRORS_H_
 #define _VSW_ERRORS_H_
 
+const char* VCU_OutOfDateErrorString = "VSW Definitions on VCU out of date!";
+const char* PDB_OutOfDateErrorString = "VSW Definitions on PDB out of date!";
+const char* HALOW_OutOfDateErrorString = "VSW Definitions on HALOW out of date!";
+const char* DASH_OutOfDateErrorString = "VSW Definitions on DASH out of date!";
+
 /* Motor controller */
 #define MC_PFAULT_POST_DESATURATION_Pos     0x00
 #define MC_PFAULT_POST_OVERCURRENT_Pos      0x01
@@ -247,8 +252,108 @@ const char* VCU_Faults_String[16] = {
 
 const char* VCU_Latch_String = "APPS/BSE Latch enabled";
 
-const char* VCU_OutOfDateErrorString = "VSW Definitions on VCU out of date!";
-const char* PDB_OutOfDateErrorString = "VSW Definitions on PDB out of date!";
-const char* HALOW_OutOfDateErrorString = "VSW Definitions on HALOW out of date!";
-const char* DASH_OutOfDateErrorString = "VSW Definitions on DASH out of date!";
+#define BMS_FAULT1_DISCHARGE_LIMIT_Pos                  0x00
+#define BMS_FAULT1_CHARGE_SAFETY_RELAY_Pos              0x01
+#define BMS_FAULT1_INTERNAL_HARDWARE_Pos                0x02
+#define BMS_FAULT1_INTERNAL_HEATSINK_THERMISTOR_Pos     0x03
+#define BMS_FAULT1_INTERNAL_SOFTWARE_Pos                0x04
+#define BMS_FAULT1_CELL_VOLTAGE_HIGH_Pos                0x05
+#define BMS_FAULT1_CELL_VOLTAGE_LOW_Pos                 0x06
+#define BMS_FAULT1_PACK_TOO_HOT_Pos                     0x07
+
+#define BMS_FAULT1_HV_INTERLOCK_SIGNAL_Pos              0x08
+#define BMS_FAULT1_PRECHARGE_CIRCUIT_Pos                0x09
+#define BMS_FAULT1_PRECHARGE_CIRCUIT_Pos                0x0A
+
+#define BMS_FAULT1_DISCHARGE_LIMIT                      (1UL << BMS_FAULT1_PACK_TOO_HOT_Pos) 
+#define BMS_FAULT1_CHARGE_SAFETY_RELAY                  (1UL << BMS_FAULT1_CELL_VOLTAGE_LOW_Pos) 
+#define BMS_FAULT1_INTERNAL_HARDWARE                    (1UL << BMS_FAULT1_CELL_VOLTAGE_HIGH_Pos) 
+#define BMS_FAULT1_INTERNAL_HEATSINK_THERMISTOR         (1UL << BMS_FAULT1_INTERNAL_SOFTWARE_Pos) 
+#define BMS_FAULT1_INTERNAL_SOFTWARE                    (1UL << BMS_FAULT1_INTERNAL_HEATSINK_THERMISTOR_Pos) 
+#define BMS_FAULT1_CELL_VOLTAGE_HIGH                    (1UL << BMS_FAULT1_INTERNAL_HARDWARE_Pos) 
+#define BMS_FAULT1_CELL_VOLTAGE_LOW                     (1UL << BMS_FAULT1_CHARGE_SAFETY_RELAY_Pos) 
+#define BMS_FAULT1_PACK_TOO_HOT                         (1UL << BMS_FAULT1_DISCHARGE_LIMIT_Pos) 
+
+#define BMS_FAULT1_HV_INTERLOCK_SIGNAL                  (1UL << BMS_FAULT1_PRECHARGE_CIRCUIT_Pos)
+#define BMS_FAULT1_PRECHARGE_CIRCUIT                    (1UL << BMS_FAULT1_PRECHARGE_CIRCUIT_Pos)
+#define BMS_FAULT1_PRECHARGE_CIRCUIT                    (1UL << BMS_FAULT1_HV_INTERLOCK_SIGNAL_Pos)
+
+#define BMS_FAULT2_INTERNAL_COMMUNICATION_Pos           0x00
+#define BMS_FAULT2_CELL_BALANCING_STUCK_OFF_Pos         0x01
+#define BMS_FAULT2_WEAK_CELL_Pos                        0x02
+#define BMS_FAULT2_LOW_CELL_VOLTAGE_Pos                 0x03
+#define BMS_FAULT2_OPEN_WIRING_Pos                      0x04
+#define BMS_FAULT2_CURRENT_SENSOR_Pos                   0x05
+#define BMS_FAULT2_CELL_VOLTAGE_EXCEEDS_5V_Pos          0x06
+#define BMS_FAULT2_CELL_ASIC_Pos                        0x07
+
+#define BMS_FAULT2_WEAK_PACK_Pos                        0x08
+#define BMS_FAULT2_FAN_MONITOR_Pos                      0x09
+#define BMS_FAULT2_THERMISTOR_Pos                       0x0A
+#define BMS_FAULT2_EXTERNAL_COMMUNICATION_Pos           0x0B
+#define BMS_FAULT2_REDUNDANT_POWER_SUPPLY_Pos           0x0C
+#define BMS_FAULT2_HIGH_VOLTAGE_ISOLATION_Pos           0x0D
+#define BMS_FAULT2_INPUT_POWER_SUPPLY_Pos               0x0E
+#define BMS_FAULT2_CHARGE_LIMIT_ENFORCEMENT_Pos         0x0F
+
+#define BMS_FAULT2_INTERNAL_COMMUNICATION               (1UL << BMS_FAULT2_INTERNAL_COMMUNICATION_Pos)
+#define BMS_FAULT2_CELL_BALANCING_STUCK_OFF             (1UL << BMS_FAULT2_CELL_BALANCING_STUCK_OFF_Pos)
+#define BMS_FAULT2_WEAK_CELL                            (1UL << BMS_FAULT2_WEAK_CELL_Pos)
+#define BMS_FAULT2_LOW_CELL_VOLTAGE                     (1UL << BMS_FAULT2_LOW_CELL_VOLTAGE_Pos)
+#define BMS_FAULT2_OPEN_WIRING                          (1UL << BMS_FAULT2_OPEN_WIRING_Pos)
+#define BMS_FAULT2_CURRENT_SENSOR                       (1UL << BMS_FAULT2_CURRENT_SENSOR_Pos)
+#define BMS_FAULT2_CELL_VOLTAGE_EXCEEDS_5V              (1UL << BMS_FAULT2_CELL_VOLTAGE_EXCEEDS_5V_Pos)
+#define BMS_FAULT2_CELL_ASIC                            (1UL << BMS_FAULT2_CELL_ASIC_Pos)
+
+#define BMS_FAULT2_WEAK_PACK                            (1UL << BMS_FAULT2_CHARGE_LIMIT_ENFORCEMENT_Pos)
+#define BMS_FAULT2_FAN_MONITOR                          (1UL << BMS_FAULT2_INPUT_POWER_SUPPLY_Pos)
+#define BMS_FAULT2_THERMISTOR                           (1UL << BMS_FAULT2_HIGH_VOLTAGE_ISOLATION_Pos)
+#define BMS_FAULT2_EXTERNAL_COMMUNICATION               (1UL << BMS_FAULT2_REDUNDANT_POWER_SUPPLY_Pos)
+#define BMS_FAULT2_REDUNDANT_POWER_SUPPLY               (1UL << BMS_FAULT2_EXTERNAL_COMMUNICATION_Pos)
+#define BMS_FAULT2_HIGH_VOLTAGE_ISOLATION               (1UL << BMS_FAULT2_THERMISTOR_Pos)
+#define BMS_FAULT2_INPUT_POWER_SUPPLY                   (1UL << BMS_FAULT2_FAN_MONITOR_Pos)
+#define BMS_FAULT2_CHARGE_LIMIT_ENFORCEMENT             (1UL << BMS_FAULT2_WEAK_PACK_Pos)
+
+const char* BMS_DTC_Strings_1[16] = {
+    /* 0 */
+    "Discharge Limit Enforcement Fault",
+    "Charger Safety Relay Fault",
+    "Internal Hardware Fault",
+    "Internal Heatsink Thermistor Fault",
+    "Internal Software Fault",
+    "Highest Cell Voltage Too High Fault",
+    "Lowest Cell Voltage Too Low Fault",
+    "Pack Too Hot Fault",
+    /* 1 */
+    "High Voltage Interlock Signal Fault",
+    "Precharge Circuit Malfunction",
+    "Abnormal State of Charge Behavior",
+    "",
+    "",
+    "",
+    "",
+    ""
+};
+
+const char* BMS_DTC_Strings_2[16] = {
+    /* 2 */
+    "Internal Communication Fault",
+    "Cell Balancing Stuck Off Fault",
+    "Weak Cell Fault",
+    "Low Cell Voltage Fault",
+    "Open Wiring Fault",
+    "Current Sensor Fault",
+    "Highest Cell Voltage Over 5V Fault",
+    "Cell ASIC Fault",
+    /* 3 */
+    "Weak Pack Fault",
+    "Fan Monitor Fault",
+    "Thermistor Fault",
+    "External Communication Fault",
+    "Redundant Power Supply Fault",
+    "High Voltage Isolation Fault",
+    "Input Power Supply Fault",
+    "Charge Limit Enforcement Fault",
+};
+
 #endif
