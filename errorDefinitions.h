@@ -263,7 +263,7 @@ const char* VCU_Latch_String = "APPS/BSE Latch enabled";
 
 #define BMS_FAULT1_HV_INTERLOCK_SIGNAL_Pos              0x08
 #define BMS_FAULT1_PRECHARGE_CIRCUIT_Pos                0x09
-#define BMS_FAULT1_PRECHARGE_CIRCUIT_Pos                0x0A
+#define BMS_FAULT1_ABNORMAL_SOC_Pos                     0x0A
 
 #define BMS_FAULT1_DISCHARGE_LIMIT                      (1UL << BMS_FAULT1_PACK_TOO_HOT_Pos) 
 #define BMS_FAULT1_CHARGE_SAFETY_RELAY                  (1UL << BMS_FAULT1_CELL_VOLTAGE_LOW_Pos) 
@@ -276,7 +276,7 @@ const char* VCU_Latch_String = "APPS/BSE Latch enabled";
 
 #define BMS_FAULT1_HV_INTERLOCK_SIGNAL                  (1UL << BMS_FAULT1_PRECHARGE_CIRCUIT_Pos)
 #define BMS_FAULT1_PRECHARGE_CIRCUIT                    (1UL << BMS_FAULT1_PRECHARGE_CIRCUIT_Pos)
-#define BMS_FAULT1_PRECHARGE_CIRCUIT                    (1UL << BMS_FAULT1_HV_INTERLOCK_SIGNAL_Pos)
+#define BMS_FAULT1_ABNORMAL_SOC_CIRCUIT                 (1UL << BMS_FAULT1_HV_INTERLOCK_SIGNAL_Pos)
 
 #define BMS_FAULT2_INTERNAL_COMMUNICATION_Pos           0x00
 #define BMS_FAULT2_CELL_BALANCING_STUCK_OFF_Pos         0x01
