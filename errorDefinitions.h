@@ -1,3 +1,6 @@
+#ifndef _VSW_ERRORS_H_
+#define _VSW_ERRORS_H_
+
 /* Motor controller */
 #define MC_PFAULT_POST_DESATURATION_Pos     0x00
 #define MC_PFAULT_POST_OVERCURRENT_Pos      0x01
@@ -248,3 +251,4 @@ const char* VCU_OutOfDateErrorString = "VSW Definitions on VCU out of date!";
 const char* PDB_OutOfDateErrorString = "VSW Definitions on PDB out of date!";
 const char* HALOW_OutOfDateErrorString = "VSW Definitions on HALOW out of date!";
 const char* DASH_OutOfDateErrorString = "VSW Definitions on DASH out of date!";
+#endif
